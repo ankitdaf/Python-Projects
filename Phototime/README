@@ -4,6 +4,7 @@ they can be accessed quickly later.
 
 This script will rename all the files of the supplied type in a specified directory **RECURSIVELY** as the date and time of their creation.
 
+NOTE : FIXED AN ISSUE WHICH CAUSED CORRUPTION OF ALL RENAMED FILES.PLEASE UPDATE YOUR CODE.
 **BE EXTREMELY CAREFUL** 
 If you want to rename files only in the current directory, make sure you give the path to the child directory.
 Consider this enough warning.

@@ -26,7 +26,7 @@ for i in dirlist:
 			statinfo = os.stat(j)
 		except OSError:
 			continue
-		newname= time.strftime("%Y-%m-%d %H.%M:%S", time.localtime(statinfo.st_mtime)) + ".%s"%(sys.argv[2])
+		newname= time.strftime("%Y-%m-%d %H.%M.%S", time.localtime(statinfo.st_mtime)) + ".%s"%(sys.argv[2])  #FIXED THIS LINE.
 		os.renames(j,i+"/"+newname)
 
 # And someone once said "What's in a name" .. Hah, in your face !!
