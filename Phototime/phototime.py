@@ -7,4 +7,5 @@ for i in filelist:
 	statinfo = os.stat(i)
 	newname= time.strftime("%Y-%m-%d %H.%M.%S", time.localtime(statinfo.st_mtime)) + ".%s"%(sys.argv[2])
 	tempnewname = i.rsplit('/',1)[0] +'/'+ newname
-	os.renames(i,tempnewname)
+	if(not os.path.exists(tempnewname)):
+		os.renames(i,tempnewname)
