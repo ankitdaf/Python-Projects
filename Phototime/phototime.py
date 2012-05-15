@@ -22,39 +22,12 @@ def show_help():
 	print "Invoke this script thus :"
 	print "python phototime.py --ftype=filetype --path=filepath\n\n"
 
-def main(argv=None):
+def rename_using(path,ftype):
 	"""
-	Main execution flow, get command line options
+	Rename files according to creation date in meta-data.
+	For SLRs which can click multiple pictures per second,
+	an extra index is suffixed to prevent overwriting
 	"""
-	if argv is None:
-		argv = sys.argv
-	try:
-		opts, args = getopt.getopt(sys.argv[1:], "", ["help","ftype=","path="])
-	except getopt.error, msg:
-		print msg
-		show_help()
-		sys.exit(2)
-	opts = dict(opts)
-	if opts.has_key("--help"):
-		show_help()
-		sys.exit(2)
-	try:
-		path = get_path(opts['--path'])
-	except:
-		print "Error in Path"
-		show_help()
-		sys.exit(2)
-	try:
-		if(opts['--ftype']==""):
-			print "No filetype specified"
-			show_help()
-			sys.exit(2)
-		else:
-			ftype = opts['--ftype']
-	except KeyError:
-		print "No filetype specified"
-		show_help()
-		sys.exit(2)
 	filelist = subprocess.Popen("find " + path + " -name \"*."+ftype+"\"" , shell=True,stdout=subprocess.PIPE, cwd=None).stdout.read().strip('\n').split('\n')
 	j=1
 	for i in filelist:
@@ -75,8 +48,47 @@ def main(argv=None):
 			os.renames(i,tempnewname)
 			j+=1
 
+
+def main(argv=None):
+	"""
+	Main execution flow, get command line options
+	"""
+	if argv is None:
+		argv = sys.argv
+	#Get command line arguments
+	try:
+		opts, args = getopt.getopt(sys.argv[1:], "", ["help","ftype=","path="])
+	except getopt.error, msg:
+		print msg
+		show_help()
+		sys.exit(2)
+	# Convert the arguments into a dictionary to make life easier
+	opts = dict(opts)
+	# Show help 
+	if opts.has_key("--help"):
+		show_help()
+		sys.exit(2)
+	# Check for valid path
+	try:
+		path = get_path(opts['--path'])
+	except:
+		print "Error in Path"
+		show_help()
+		sys.exit(2)
+	# Check for valid filetype
+	try:
+		if(opts['--ftype']==""):
+			print "No filetype specified"
+			show_help()
+			sys.exit(2)
+		else:
+			ftype = opts['--ftype']
+	except KeyError:
+		print "No filetype specified"
+		show_help()
+		sys.exit(2)
+	# Actual file renaming happens here
+	rename_using(path,ftype)
+
 if __name__ == "__main__":
 	sys.exit(main())
-	
-
-
