@@ -6,14 +6,12 @@ This script will rename all the files of the supplied type in a specified direct
 
 Changelog:
 
--Added option to prefix and postfix strings, as per issue #1
--Added checking for filetype and path
--Made invocation similar to standard command line script invocations
--Added a suffix counter to the filename in case multiple pictures were taken in a second, doesn't skip renaming anymore
--Fixed an issue which caused files to be overwritten if all of them were created
- within the span of a measurable second ( applicable only for DSLR pictures,
- issue doesn't arise in digicams), Skips renaming duplicates instead of overwriting
--FIXED AN ISSUE WHICH CAUSED CORRUPTION OF ALL RENAMED FILES.PLEASE UPDATE YOUR CODE.
+- Added option to prefix and postfix strings, as per issue #1
+- Added checking for filetype and path
+- Made invocation similar to standard command line script invocations
+- Added a suffix counter to the filename in case multiple pictures were taken in a second, doesn't skip renaming anymore
+- Fixed an issue which caused files to be overwritten if all of them were created within the span of a measurable second ( applicable only for DSLR pictures, issue doesn't arise in digicams), Skips renaming duplicates instead of overwriting
+- FIXED AN ISSUE WHICH CAUSED CORRUPTION OF ALL RENAMED FILES.PLEASE UPDATE YOUR CODE.
 
 **BE EXTREMELY CAREFUL** 
 If you want to rename files only in the current directory, make sure you give the path to the child directory.
