@@ -6,6 +6,7 @@ This script will rename all the files of the supplied type in a specified direct
 
 Changelog:
 
+-Added option to prefix and postfix strings, as per issue #1
 -Added checking for filetype and path
 -Made invocation similar to standard command line script invocations
 -Added a suffix counter to the filename in case multiple pictures were taken in a second, doesn't skip renaming anymore
