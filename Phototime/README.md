@@ -6,6 +6,7 @@ This script will rename all the files of the supplied type in a specified direct
 
 Changelog:
 
+- No longer skips renaming files
 - Added option to prefix and postfix strings, as per issue #1
 - Added checking for filetype and path
 - Made invocation similar to standard command line script invocations

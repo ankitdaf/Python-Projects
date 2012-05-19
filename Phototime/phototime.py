@@ -50,9 +50,6 @@ def rename_using(path,ftype,pre="",post=""):
 			os.renames(i,tempnewname)
 			j=1
 		else:
-			if (pre in tempnewname) and (post in tempnewname):
-				# The files have already been renamed, there's nothing to do here
-				continue
 			tempnewname = newname + str(j) + post + ".%s"%(ftype)
 			os.renames(i,tempnewname)
 			j+=1
