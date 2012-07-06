@@ -6,6 +6,7 @@ This script will rename all the files of the supplied type in a specified direct
 
 Changelog:
 
+- Added a script to automatically copy card photos to HDD
 - No longer skips renaming files
 - Added option to prefix and postfix strings, as per issue #1
 - Added checking for filetype and path
@@ -26,10 +27,19 @@ How To :
 
 Just type the following command in the terminal :
 
+To rename the files :
+
 python phototime.py --ftype=filetype --path=filepath
+
+To grab all the files on the card :
+
+python card_downloader.py
 
 
 Wishlist :
 
--Make the code independent of case
--Add support for extension using * instead of specifying extension 
+- Make the code independent of case
+
+- Add support for extension using * instead of specifying extension 
+
+- Automatically cause invocation of the card_downloader script when a card is plugged in
